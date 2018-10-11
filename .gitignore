@@ -41,6 +41,7 @@ libtool
 *.dirstamp
 configure
 build-aux
+aclocal.m4
 
 #example2d
 example2d/example*
@@ -48,6 +49,8 @@ example3d/example*
 Makefile
 */Makefile
 */*/Makefile
+*/tags
+*/*/tags
 
 # Others
 *~
