@@ -17,9 +17,8 @@ AM_PROG_AR
 LT_INIT([static])
 
 #Check for compilers
-AC_PROG_CC([gcc])
 AC_PROG_CXX([g++])
-AC_LANG([C],[C++])
+AC_LANG([C++])
 
 #Check for pthreads
 ACX_PTHREAD([have_pthread=yes],[have_pthread=no])
@@ -70,31 +69,17 @@ AS_IF([test $with_hdf = yes],
       AC_SUBST(HDF_LIBS,${hdflib}" -lmfhdf -ldf -ljpeg -lz")])
 
 
-AC_ARG_WITH([example2d],[AS_HELP_STRING([--with-example2d],
-              [build the 2d example directory])],
-              [exTwoD="yes"],[exTwoD="no"])
-
-AM_CONDITIONAL([EX2D_OPT],[test "$exTwoD" = "yes"])
-
-AC_ARG_WITH([example3d],[AS_HELP_STRING([--with-example3d],
-              [build the 3d example directory])],
-              [exThreeD="yes"],[exThreeD="no"])
-
-AM_CONDITIONAL([EX3D_OPT],[test "$exThreeD" = "yes"])
-
 #Output files
 AC_CONFIG_FILES([Makefile
                  lib/Makefile
                  lib/gmock/Makefile
-                 tests/Makefile
-                 example2d/Makefile
-                 example3d/Makefile])
+                 tests/Makefile])
 
 #Generate output
 AC_OUTPUT
 
 AC_MSG_RESULT([
-FronTier_Automake $VERSION is now configured
+FronTierCpp $VERSION is now configured
 Configure Information:
   C Compiler        : $CC
     DEFS            :   $DEFS
