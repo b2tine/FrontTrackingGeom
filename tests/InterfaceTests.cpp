@@ -2,54 +2,39 @@
 #include "gtest/gtest.h"
 
 
-TEST(InterfaceTests, InsertCurveInterface2d)
+TEST(CurveTests, Create2dCurve)
 {
+    Point a(0,0);
+    Point b(1,0);
+    Point c(1,1);
+    Point d(0,1);
+
     std::vector<Point> pts;
-    pts.push_back(Point(0,0));
-    pts.push_back(Point(1,0));
-    pts.push_back(Point(1,1));
+    pts.push_back(a);
+    pts.push_back(b);
+    pts.push_back(c);
+    pts.push_back(d);
     
-    Interface2d intfc2d;
-    intfc2d.insertClosedCurvePoints(pts);
+    Curve curve(pts);
+    auto cit = curve.cbegin();
 
-    /*
-    ASSERT_DOUBLE_EQ(intfc2d.getPoint(0)[0], 0);
-    ASSERT_DOUBLE_EQ(intfc2d.getPoint(0)[1], 0);
+    auto p = *cit;
+    ASSERT_DOUBLE_EQ(p[0], 0);
+    ASSERT_DOUBLE_EQ(p[1], 0);
+    cit++;
 
-    ASSERT_DOUBLE_EQ(intfc2d.getPoint(1)[0], 1);
-    ASSERT_DOUBLE_EQ(intfc2d.getPoint(1)[1], 0);
-    
-    ASSERT_DOUBLE_EQ(intfc2d.getPoint(2)[0], 1);
-    ASSERT_DOUBLE_EQ(intfc2d.getPoint(2)[1], 1);
-    */
+    p = *cit;
+    ASSERT_DOUBLE_EQ(p[0], 1);
+    ASSERT_DOUBLE_EQ(p[1], 0);
+    cit++;
 
-    //ASSERT_EQ(intfc2d.getCurve(0).begin(),
-      //      intfc2d.getCurve(0).end()->next);
+    p = *cit;
+    ASSERT_DOUBLE_EQ(p[0], 1);
+    ASSERT_DOUBLE_EQ(p[1], 1);
+    cit++;
+
+    p = *cit;
+    ASSERT_DOUBLE_EQ(p[0], 0);
+    ASSERT_DOUBLE_EQ(p[1], 1);
 }
-
-/*
-TEST(InterfaceTests, Add3dPointsToInterface)
-{
-    std::vector<Point> pts;
-    pts.push_back(Point(0,0,0));
-    pts.push_back(Point(1,0,0));
-    pts.push_back(Point(1,1,1));
-    
-    Interface intfc;
-    intfc.addPoints(pts);
-
-    ASSERT_DOUBLE_EQ(intfc.getPoint(0)[0], 0);
-    ASSERT_DOUBLE_EQ(intfc.getPoint(0)[1], 0);
-    ASSERT_DOUBLE_EQ(intfc.getPoint(0)[2], 0);
-
-    ASSERT_DOUBLE_EQ(intfc.getPoint(1)[0], 1);
-    ASSERT_DOUBLE_EQ(intfc.getPoint(1)[1], 0);
-    ASSERT_DOUBLE_EQ(intfc.getPoint(1)[2], 0);
-    
-    ASSERT_DOUBLE_EQ(intfc.getPoint(2)[0], 1);
-    ASSERT_DOUBLE_EQ(intfc.getPoint(2)[1], 1);
-    ASSERT_DOUBLE_EQ(intfc.getPoint(2)[2], 1);
-}
-*/
-
 

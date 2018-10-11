@@ -16,6 +16,8 @@ check_PROGRAMS =
 
 TESTS += InterfaceTests
 check_PROGRAMS += InterfaceTests
-
 InterfaceTests_SOURCES = InterfaceTests.cpp
 
+TESTS += RectGridTests
+check_PROGRAMS += RectGridTests
+RectGridTests_SOURCES = RectGridTests.cpp
