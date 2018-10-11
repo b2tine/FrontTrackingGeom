@@ -1,4 +1,4 @@
-AM_CPPFLAGS= $(GTEST_CPPFLAGS)
+AM_CPPFLAGS= $(GTEST_CPPFLAGS) -I$(top_srcdir)/src
 
 AM_CXXFLAGS = $(GTEST_CXXFLAGS)
 
@@ -14,6 +14,8 @@ TESTS_ENVIRONMENT =
 TESTS =
 check_PROGRAMS =
 
-TESTS +=
-check_PROGRAMS +=
+TESTS += InterfaceTests
+check_PROGRAMS += InterfaceTests
+
+InterfaceTests_SOURCES = InterfaceTests.cpp
 
